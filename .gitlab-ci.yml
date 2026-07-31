@@ -1,9 +1,5 @@
-image: node:lts
-
 create-pages:
   script:
-    - npm install
-    - npm run build  # or whatever build command you use
     - echo "Pages built successfully"
   artifacts:
     paths:
