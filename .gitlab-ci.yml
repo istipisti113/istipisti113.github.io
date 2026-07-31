@@ -1,4 +1,4 @@
-create-pages:
+pages:
   script:
     - echo "Pages built successfully"
   artifacts:
