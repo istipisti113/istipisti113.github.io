@@ -15,6 +15,6 @@ fn main() {
     contents = contents.replace("CONTENT", INJECTED);
     let mut newfile = File::create("output/index.html").unwrap();
     newfile.write(contents.as_bytes()).unwrap();
-    println!("{contents}");
+    //println!("{contents}");
     drop(newfile);
 }
