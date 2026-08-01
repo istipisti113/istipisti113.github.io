@@ -1,4 +1,4 @@
-use std::{cell::LazyCell, fs::{File, create_dir}, io::{Read, Write}};
+use std::{cell::LazyCell, fs::{File, write}, io::{Read, Write}};
 
 const TEMPLATE: LazyCell<String> = LazyCell::new(||{
     let mut file = File::open("templates/index.html").unwrap();
@@ -32,7 +32,8 @@ fn convert_file(name: &str) {
 
     println!("output/{}.html", name);
 
-    let mut newfile = File::create(format!("output/{}.html", name)).unwrap();
-    newfile.write(html_content.as_bytes()).unwrap();
+    //let mut newfile = File::create(format!("output/{}.html", name)).unwrap();
+    //newfile.write(html_content.as_bytes()).unwrap();
+    write(format!("output/{}.html", name), html_content).unwrap();
     //println!("{contents}");
 }
