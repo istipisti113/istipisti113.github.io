@@ -1,20 +1,35 @@
-use std::{fs::File, io::{Read, Write}};
+use std::{cell::LazyCell, fs::File, io::{Read, Write}};
 
-static INJECTED:  &str = "
-<h1>this is the new header</h1>
-<p>this is the new paragraph</p>
-";
+const TEMPLATE: LazyCell<String> = LazyCell::new(||{
+    let mut file = File::open("templates/index.html").unwrap();
+    let mut base = String::new();
+    file.read_to_string(&mut base).unwrap();
+    base
+});
 
 fn main() {
     println!("building pages");
-    let mut file = File::open("templates/index.html").unwrap();
-    let mut contents = String::new();
-    File::read_to_string(&mut file, &mut contents).unwrap();
-    drop(file);
 
-    contents = contents.replace("CONTENT", INJECTED);
-    let mut newfile = File::create("output/index.html").unwrap();
-    newfile.write(contents.as_bytes()).unwrap();
+    let files = std::fs::read_dir("input").unwrap();
+    for file in files {
+        //println!("{}", file.unwrap().file_name().to_str().unwrap());
+        let name = file.unwrap().file_name();
+        let name = name.to_str().unwrap();
+        convert_file(name);
+    }
+
+}
+
+fn convert_file(name: &str) {
+    //let index = base.replace("CONTENT", INJECTED);
+    let mut md_content = String::new();
+    let mut md_file = File::open(format!("input/{}.md", name)).unwrap();
+
+    md_file.read_to_string(&mut md_content).unwrap();
+
+    let html_content = TEMPLATE.replace("CONTENT", &markdown::to_html(&md_content));
+
+    let mut newfile = File::create(format!("output/{}.html", name)).unwrap();
+    newfile.write(html_content.as_bytes()).unwrap();
     //println!("{contents}");
-    drop(newfile);
 }
