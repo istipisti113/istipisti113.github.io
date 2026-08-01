@@ -14,7 +14,7 @@ fn main() {
     for file in files {
         //println!("{}", file.unwrap().file_name().to_str().unwrap());
         let name = file.unwrap().file_name();
-        let name = name.to_str().unwrap();
+        let name = name.to_str().unwrap().split(".").nth(0).unwrap();
         convert_file(name);
     }
 
