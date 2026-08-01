@@ -13,6 +13,7 @@ pages:
   stage: deploy
   script:
     - cat public/index.html
+    - echo teszt > public/index.html
   artifacts:
     paths:
       - public
