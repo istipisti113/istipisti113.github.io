@@ -12,8 +12,7 @@ build:
 pages:
   stage: deploy
   script:
-    - cat public/index.html
-    - echo teszt > public/index.html
+    - cp output/* public
   artifacts:
     paths:
       - public
