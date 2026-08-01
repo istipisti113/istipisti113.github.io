@@ -23,7 +23,7 @@ fn main() {
 fn convert_file(name: &str) {
     //let index = base.replace("CONTENT", INJECTED);
     let mut md_content = String::new();
-    let mut md_file = File::open(format!("input/{}.md", name)).unwrap();
+    let mut md_file = File::open(format!("input/{}", name)).unwrap();
 
     md_file.read_to_string(&mut md_content).unwrap();
 
