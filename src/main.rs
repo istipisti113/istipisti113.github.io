@@ -13,7 +13,7 @@ fn main() {
     drop(file);
 
     contents = contents.replace("CONTENT", INJECTED);
-    let mut newfile = File::create("public/index.html").unwrap();
+    let mut newfile = File::create("output/index.html").unwrap();
     newfile.write(contents.as_bytes()).unwrap();
     println!("{contents}");
     drop(newfile);
