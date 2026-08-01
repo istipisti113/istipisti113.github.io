@@ -12,7 +12,7 @@ build:
 pages:
   stage: deploy
   script:
-    - ls .
+    - cat public/index.html
   artifacts:
     paths:
       - public
