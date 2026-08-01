@@ -1,7 +1,7 @@
 pages:
   stage: deploy
   script:
-    - ls .
+    - cargo build
   artifacts:
     paths:
       - public
