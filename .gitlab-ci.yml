@@ -1,7 +1,18 @@
+image: rust:latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - cargo run
+
 pages:
   stage: deploy
   script:
-    - cargo build
+    - ls .
   artifacts:
     paths:
       - public
