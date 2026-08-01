@@ -8,6 +8,9 @@ build:
   stage: build
   script:
     - cargo run
+  artifacts:
+    paths:
+      - output
 
 pages:
   stage: deploy
