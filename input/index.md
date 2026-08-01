@@ -4,4 +4,4 @@ In these blog entries I will share my experience in the topic I am working on.
 The goal of this blog is to make documentation about the things I work on for both my own use and for everyone else. 
 I don't _vibe code_, but i use AI for research.
 
-[test page](/blog/test.html)
+[test page](/test.html)
