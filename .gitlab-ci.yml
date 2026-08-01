@@ -12,6 +12,7 @@ build:
 pages:
   stage: deploy
   script:
+    - mkdir public
     - cp output/* public
     - echo "public:"
     - ls public
