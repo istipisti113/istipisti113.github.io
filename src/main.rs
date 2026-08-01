@@ -30,6 +30,7 @@ fn convert_file(name: &str) {
 
     let html_content = TEMPLATE.replace("CONTENT", &markdown::to_html(&md_content));
 
+    println!("output/{}.html", name);
     let mut newfile = File::create(format!("output/{}.html", name)).unwrap();
     newfile.write(html_content.as_bytes()).unwrap();
     //println!("{contents}");
