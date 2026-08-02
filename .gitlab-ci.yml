@@ -16,7 +16,7 @@ pages:
   stage: deploy
   script:
     - mkdir public
-    - cp output/* public
+    - cp -r output/* public
     - echo "public:"
     - ls public
   artifacts:
