@@ -24,15 +24,6 @@ fn recursive_convert(current: &PathBuf) {
         create_output_dir(current);
         for entry in current.read_dir().unwrap(){
             let valid = entry.unwrap().path();
-            //if valid.as_path().is_dir() {
-            //    recursive_convert(&valid);
-            //} else {
-            //    //println!("{}", file.unwrap().file_name().to_str().unwrap());
-            //    //let name = valid.file_name().unwrap();
-            //    //let name = name.to_str().unwrap().split(".").nth(0).unwrap();
-            //    //convert_file(name);
-            //    convert_file_path(valid);
-            //}
             recursive_convert(&valid.to_path_buf());
         }
     } else {
