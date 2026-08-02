@@ -1,6 +1,6 @@
-# How I made this blog
+# <span id="header_decoration">></span>How I made this blog
 
-## The Rust part
+## <span id="header_decoration">></span>The Rust part
 The Rust code does the following:
 
 - "scan" the input directory
@@ -9,7 +9,7 @@ The Rust code does the following:
 
 It really could not be any simpler than that.
 
-## Continuous Integration
+## <span id="header_decoration">></span>Continuous Integration
 
 GitLab CI allows us to write scripts that will be ran on each commit.
 On committing to the main branch, a script will be ran, where the rust parser runs,

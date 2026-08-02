@@ -1,4 +1,7 @@
-use std::{arch::naked_asm, cell::LazyCell, ffi::OsStr, fs::{self, File, create_dir, write}, io::{Read, Write}, path::{Component, Path, PathBuf}, thread::current};
+use std::{arch::naked_asm, cell::LazyCell, ffi::OsStr,
+    fs::{self, File, create_dir, write}, io::{Read, Write},
+    path::{Component, Path, PathBuf}, thread::current};
+use markdown::{CompileOptions, Options, to_html_with_options};
 
 const TEMPLATE: LazyCell<String> = LazyCell::new(||{
     let mut file = File::open("templates/index.html").unwrap();
@@ -62,7 +65,14 @@ fn convert_file_path(path: PathBuf) {
     let mut md_content = String::new();
     File::read_to_string(&mut File::open(&path).unwrap(), &mut md_content).unwrap();
 
-    let html_content = TEMPLATE.replace("CONTENT", &markdown::to_html(&md_content));
+    let options = Options {
+        compile: CompileOptions {
+            allow_dangerous_html: true,
+            ..CompileOptions::default()
+        },
+        ..Options::default()
+    };
+    let html_content = TEMPLATE.replace("CONTENT", &to_html_with_options(&md_content, &options).unwrap());
 
     if !Path::new("output").exists(){
         create_dir("output").unwrap();
