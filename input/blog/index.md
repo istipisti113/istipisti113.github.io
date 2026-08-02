@@ -12,6 +12,6 @@ It really could not be any simpler than that.
 ## Continuous Integration
 
 GitLab CI allows us to write scripts that will be ran on each commit.
-On committing to the main branch, a script will be ran, where the rust parser runs, <br>
-then a bash script copies the content of the output to the public directory. It could output could be <br>
+On committing to the main branch, a script will be ran, where the rust parser runs,
+then a bash script copies the content of the output to the public directory. It could output could be
 configured to be the _public_ one, but whatever.
