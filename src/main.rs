@@ -65,6 +65,8 @@ fn convert_file_path(path: PathBuf) {
     let mut md_content = String::new();
     File::read_to_string(&mut File::open(&path).unwrap(), &mut md_content).unwrap();
 
+    //let mut timestamp = md_content.split("$$$").nth(0).unwrap();
+
     let options = Options {
         compile: CompileOptions {
             allow_dangerous_html: true,

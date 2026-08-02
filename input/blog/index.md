@@ -11,7 +11,9 @@ It really could not be any simpler than that.
 
 ## <span id="header_decoration">></span>Continuous Integration
 
-GitLab CI allows us to write scripts that will be ran on each commit.
-On committing to the main branch, a script will be ran, where the rust parser runs,
-then a bash script copies the content of the output to the public directory. It could output could be
-configured to be the _public_ one, but whatever.
+GitLab CI allows us to write scripts that will be ran on each commit (.gitlab-ci.yml). 
+On committing to the main branch (depends on setup), a script will be ran, where the rust parser runs,
+then a bash script copies the content of the output to the public directory.
+
+It is in two stages, the first one is the build stage, the later is the deploy.
+They are in separate stages for modularity (mainly).
