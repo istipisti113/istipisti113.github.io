@@ -80,6 +80,9 @@ fn convert_file_path(path: PathBuf) {
     let mut back = path.components().collect::<Vec<_>>();
     back.pop();
     back.remove(0);
+    if back.len()>1{
+        back.remove(0);
+    }
 
     let html_content = TEMPLATE.replace("CONTENT", 
         &(BACK_LINK.clone().replace("TARGET", 
