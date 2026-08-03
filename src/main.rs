@@ -1,4 +1,4 @@
-use std::{arch::naked_asm, cell::LazyCell, ffi::OsStr,
+use std::{arch::naked_asm, cell::LazyCell, ffi::{OsStr, OsString},
     fs::{self, File, create_dir, write}, io::{Read, Write},
     path::{Component, Path, PathBuf}, thread::current};
 use markdown::{CompileOptions, Options, to_html_with_options};
@@ -8,6 +8,10 @@ const TEMPLATE: LazyCell<String> = LazyCell::new(||{
     let mut base = String::new();
     file.read_to_string(&mut base).unwrap();
     base
+});
+
+const BACK_LINK: LazyCell<String> = LazyCell::new(||{
+    String::from("<a href=\"TARGET\" style=\"float: right;\">back</a>")
 });
 
 fn main() {
@@ -22,7 +26,7 @@ fn main() {
 }
 
 fn recursive_convert(current: &PathBuf) {
-    println!("current: {}, is_dir: {}", current.to_str().unwrap(), current.is_dir());
+    //println!("current: {}, is_dir: {}", current.to_str().unwrap(), current.is_dir());
     if current.is_dir(){
         create_output_dir(current);
         for entry in current.read_dir().unwrap(){
@@ -59,9 +63,7 @@ fn change_to_html(path: &PathBuf) -> PathBuf {
 }
 
 fn convert_file_path(path: PathBuf) {
-    println!("{:?}", path);
     let name = path.file_prefix().unwrap(); //only the name, no extension
-    println!("{:?}", name);
     let mut md_content = String::new();
     File::read_to_string(&mut File::open(&path).unwrap(), &mut md_content).unwrap();
 
@@ -74,7 +76,20 @@ fn convert_file_path(path: PathBuf) {
         },
         ..Options::default()
     };
-    let html_content = TEMPLATE.replace("CONTENT", &to_html_with_options(&md_content, &options).unwrap());
+
+    let mut back = path.components().collect::<Vec<_>>();
+    back.pop();
+    println!("{:?}", back[back.len()-1]);
+    let html_content = TEMPLATE.replace("CONTENT", 
+        &(BACK_LINK.clone().replace("TARGET", 
+            if back[back.len()-1] == Component::Normal(&OsString::from("input")){
+                "/"
+            } else {
+                back[back.len()-1].as_os_str().to_str().unwrap()
+            }
+        ) + &to_html_with_options(&md_content, &options).unwrap())
+    );
+
 
     if !Path::new("output").exists(){
         create_dir("output").unwrap();
