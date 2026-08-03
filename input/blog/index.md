@@ -1,3 +1,4 @@
+<a href="/" style="float: right;">back</a>
 # How I made this blog
 
 ## The Rust part
