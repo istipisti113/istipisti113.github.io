@@ -79,14 +79,13 @@ fn convert_file_path(path: PathBuf) {
 
     let mut back = path.components().collect::<Vec<_>>();
     back.pop();
-    println!("{:?}", back[back.len()-1]);
+    back.remove(0);
+
     let html_content = TEMPLATE.replace("CONTENT", 
         &(BACK_LINK.clone().replace("TARGET", 
-            if back[back.len()-1] == Component::Normal(&OsString::from("input")){
-                "/"
-            } else {
-                back[back.len()-1].as_os_str().to_str().unwrap()
-            }
+            &format!("/{}", back.iter().map(|c|{
+                c.as_os_str().to_str().unwrap()
+            }).collect::<Vec<&str>>().join("/"))
         ) + &to_html_with_options(&md_content, &options).unwrap())
     );
 
