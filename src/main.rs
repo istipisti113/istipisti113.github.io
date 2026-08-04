@@ -1,6 +1,6 @@
-use std::{arch::naked_asm, cell::LazyCell, ffi::{OsStr, OsString},
-    fs::{self, File, create_dir, write}, io::{Read, Write},
-    path::{Component, Path, PathBuf}, thread::current};
+use std::{cell::LazyCell, ffi::OsStr,
+    fs::{self, File, create_dir, write}, io::Read,
+    path::{Component, Path, PathBuf}};
 use markdown::{CompileOptions, Options, to_html_with_options};
 
 const TEMPLATE: LazyCell<String> = LazyCell::new(||{
@@ -63,11 +63,8 @@ fn change_to_html(path: &PathBuf) -> PathBuf {
 }
 
 fn convert_file_path(path: PathBuf) {
-    let name = path.file_prefix().unwrap(); //only the name, no extension
     let mut md_content = String::new();
     File::read_to_string(&mut File::open(&path).unwrap(), &mut md_content).unwrap();
-
-    //let mut timestamp = md_content.split("$$$").nth(0).unwrap();
 
     let options = Options {
         compile: CompileOptions {
@@ -84,13 +81,16 @@ fn convert_file_path(path: PathBuf) {
         back.pop();
     }
 
+    let mut css = String::new();
+    File::read_to_string( &mut File::open("style.css").unwrap(), &mut css).unwrap();
+
     let html_content = TEMPLATE.replace("CONTENT", 
         &(BACK_LINK.clone().replace("TARGET", 
             &format!("/{}", back.iter().map(|c|{
                 c.as_os_str().to_str().unwrap()
             }).collect::<Vec<&str>>().join("/"))
         ) + &to_html_with_options(&md_content, &options).unwrap())
-    );
+    ).replace("STYLE", &css);
 
 
     if !Path::new("output").exists(){

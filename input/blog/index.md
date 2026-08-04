@@ -1,4 +1,3 @@
-
 # How I made this blog
 
 ## The Rust part
@@ -11,7 +10,10 @@ The Rust code does the following:
     - For that I use [wooorm/markdown](https://github.com/wooorm/markdown-rs)
   - If it finds a directory it creates the directory in the output
 
-It really could not be any simpler than that.
+The rust program handles the http sizes as <span class="codeblock">Strings</span>, I use <span class="codeblock">.replace()</span> on them to put the parts together like Lego.
+It most certainly is not the _de facto_ correct way, but it works. It really could not be any simpler than that.
+
+From the contents of the pages put into the html template (or "bracket" if you will) to the href in the button everything is just <span class="codeblock">.replace()</span>. I have yet to shoot myself in the foot with it, so until the day comes, I will not change it. Html is _just_ text after all, what could go wrong...
 
 I plan on expanding this to automatically order the entries on the main page based on some timestamp, but I leave it as a plan for now.
 
