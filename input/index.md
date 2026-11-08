@@ -11,3 +11,4 @@ email: 5n038f88j@mozmail.com
 <a style="float: right;" href="/useful_commands">useful commands</a><br>
 # Entries
 [How the blog is made](/blog)
+[Rust AI trade thing](/blog/rust_ai_assistant)
