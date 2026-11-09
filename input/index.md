@@ -9,6 +9,8 @@ The site will move to one with a _proper_ webserver (if i find the time (new blo
 email: 5n038f88j@mozmail.com
 
 <a style="float: right;" href="/useful_commands">useful commands</a><br>
+<a style="float: right;" href="/my_setup.html">my setup</a><br>
 # Entries
-[How the blog is made](/blog)
+[How the blog is made](/blog) 
+
 [Rust AI trade thing](/blog/rust_ai_assistant.html)
