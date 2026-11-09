@@ -584,7 +584,17 @@
     },
     {
       "filePath": "my_setup.md",
-      "line": 0,
+      "line": 1,
+      "ch": 0
+    },
+    {
+      "filePath": "my_setup.md",
+      "line": 13,
+      "ch": 0
+    },
+    {
+      "filePath": "my_setup.md",
+      "line": 16,
       "ch": 0
     }
   ],
