@@ -8,8 +8,11 @@ The site will move to one with a _proper_ webserver (if i find the time (new blo
 
 email: 5n038f88j@mozmail.com
 
-<a style="float: right;" href="/useful_commands">useful commands</a><br>
-<a style="float: right;" href="/my_setup.html">my setup</a><br>
+<div style="float: right;">
+<a style="float: right; padding-bottom: 18px;" href="/useful_commands">useful commands</a><br>
+<a style="float: right; padding-bottom: 18px;" href="/my_setup.html">my setup</a><br>
+</div>
+
 # Entries
 [How the blog is made](/blog) 
 
