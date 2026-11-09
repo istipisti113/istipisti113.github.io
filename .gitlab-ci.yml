@@ -17,6 +17,7 @@ pages:
   script:
     - mkdir public
     - cp -r output/* public
+    - cp 0256.jpg public
     - echo "public:"
     - ls public
   artifacts:
