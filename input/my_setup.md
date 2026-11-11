@@ -6,6 +6,7 @@
 - Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz 4 core 8 thread
 - 16GB DDR4
 - Nvidia 1650 mobile
+
 ## Desktop 
 - Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz 4 core 8 thread
 - 16 GB DDR4 
@@ -19,9 +20,10 @@ My dotfiles are managed with Nix too, with Home Manager, tracked with git along 
 
 I use sway on the laptop and KDE Plasma on the desktop, tho  it is mostly headless.
 
+For music I use Spotatui, check it out, it is awesome!
 ## Peripherials and other goodies
 
-![setup image](https://github.com/tompi/cheapino/raw/master/doc/gallery/20.jpg)
+![setup image|629](https://github.com/tompi/cheapino/raw/master/doc/gallery/20.jpg)
 I no longer use arch (btw), but the setup remains mostly unchanged.
 
 The keyboard is a Cheapino V2, with a 3d printed case on my 3d printer: Anycubic kobra 2 neo, managed with a Raspberry Pi 4
