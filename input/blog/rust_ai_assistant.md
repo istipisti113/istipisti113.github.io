@@ -2,7 +2,7 @@
 [source code](https://github.com/istipisti113/rust_ai_assistant) <br>
 
 !This project is very much in beta!
-The code is AI **assisted**, but I am very much the sole source of slop in the codebase. It is bad because **I** am bad. 
+The code is AI **assisted**, I don't vibe code.
 
 ## Intentions
 The main goal of this project is to learn to use AI models as agents in a custom harness. It will be of great use in another project of mine, this is basicaly the forerunner of it. Also while we're here why not try and make some money? 

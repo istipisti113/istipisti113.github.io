@@ -9,7 +9,7 @@ I have been writing rust since 2022, and I expect to stick with it. I have exper
 
 I have done lessons on [CodeCrafters](https://codecrafters.io/), [Exercism](https://exercism.org/) and [Advent of Code](https://adventofcode.com/)(33 stars).
 
-I sometimes contribute to open source software too.
+I sometimes contribute to open source software too.<br>
 [spotatui](https://github.com/LargeModGames/spotatui#spotatui-contributors)<br>
 [synapse](https://github.com/mains-hum/synapse/pull/1)<br>
 
