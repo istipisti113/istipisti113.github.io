@@ -15,4 +15,4 @@ I sometimes contribute to open source software too.<br>
 
 I am currently learning to use AI models and writing my own [harness](https://github.com/istipisti113/rust_ai_assistant), not like I can make a better harness, but being able to embedd it into my other works would be a great tool.
 
-Our education mandates us to create projects in groups. Ours is [BitLingo](https://bitlingo.hu), where I have done the backend and devops.
+Our education mandates us to create projects in groups. Ours is [BitLingo](https://bitlingo.hu), where I have done the backend in [warp](https://docs.rs/warp/latest/warp/) and devops.
