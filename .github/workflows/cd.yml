@@ -1,0 +1,27 @@
+container: rust:latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  run:
+    - cargo run
+  artifacts:
+    paths:
+      - output
+
+pages:
+  stage: deploy
+  run:
+    - mkdir public
+    - cp -r output/* public
+    - cp 0256.jpg public
+    - echo "public:"
+    - ls public
+  artifacts:
+    paths:
+      - public
+    # The folder that contains the files to be exposed at the Page URL
+  if: $CI_COMMIT_BRANCH == "main"
