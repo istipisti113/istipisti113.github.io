@@ -1,5 +1,3 @@
-container: rust:latest
-
 stages:
   - build
   - deploy
