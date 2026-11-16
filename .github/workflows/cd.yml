@@ -1,25 +1,34 @@
-stages:
-  - build
-  - deploy
+name: page
 
-build:
-  stage: build
-  run:
-    - cargo run
-  artifacts:
-    paths:
-      - output
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: 
+          cargo run;
 
-pages:
-  stage: deploy
-  run:
-    - mkdir public
-    - cp -r output/* public
-    - cp 0256.jpg public
-    - echo "public:"
-    - ls public
-  artifacts:
-    paths:
-      - public
-    # The folder that contains the files to be exposed at the Page URL
-  if: $CI_COMMIT_BRANCH == "main"
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with: 
+          name: page-output
+          path: output/
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: |
+          mkdir public;
+          cp -r output/* public;
+          cp 0256.jpg public;
+          echo "public:";
+          ls public;
+      - name: save
+        uses: actions/upload-artifact@v4
+        with: 
+          name: page
+          path: public/
