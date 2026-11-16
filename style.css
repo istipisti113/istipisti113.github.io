@@ -1,6 +1,4 @@
-body {
-  font-size: 25px;
-  font-family: monospace;
+html {
   background-color: #606c38;
   background-color: #757323;
   background-color: #4d7523;
@@ -8,6 +6,11 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+body {
+  font-size: 25px;
+  font-family: monospace;
   color: #fefae0;
   width: 75%;
   margin: auto;
