@@ -12,6 +12,7 @@ I have done lessons on [CodeCrafters](https://codecrafters.io/), [Exercism](http
 I sometimes contribute to open source software too.<br>
 [spotatui](https://github.com/LargeModGames/spotatui#spotatui-contributors)<br>
 [synapse](https://github.com/mains-hum/synapse/pull/1)<br>
+[tosk](https://github.com/sharkmu/tosk/commits/master/?author=istipisti113)<br>
 
 I am currently learning to use AI models and writing my own [harness](https://github.com/istipisti113/rust_ai_assistant), not like I can make a better harness, but being able to embedd it into my other works would be a great tool.
 
